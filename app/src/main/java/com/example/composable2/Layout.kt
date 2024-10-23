@@ -17,6 +17,7 @@ import androidx.compose.material.icons.filled.Done
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -35,8 +36,16 @@ fun Layout(modifier: Modifier = Modifier){
         )
         DetailMahasiswa(
             judul = "NIM",
-            isinya = "20220140179"
+            isinya = "20220140179")
+        DetailMahasiswa(
+            judul = "Alamat", isinya = "Kebumen")
+        DetailMahasiswa(
+            judul = "Email", isinya = "dinamaliaa17@gmail.com"
         )
+        DetailMahasiswa(
+            judul = "No HP", isinya = "081384539397"
+        )
+
     }
 }
 
@@ -47,51 +56,46 @@ fun TampilanHeader(){
         .background(Color.DarkGray)
         .padding(20.dp)
     )
-        Row{
-            Box {
-
-
-            }
+    Row {
+        Box(
+            contentAlignment = Alignment.BottomEnd
+        ){
             Image(painterResource(R.drawable.logoumy),
+                modifier = Modifier.size(100.dp),
                 contentDescription = null)
-
             Icon(Icons.Default.Done,
                 contentDescription = null,
-                modifier = Modifier
-                    .size(28.dp)
+                modifier = Modifier.size(35.dp)
                     .background(color = Color.Red, shape = CircleShape),
-                tint = Color.Red,
-                )
+                tint = Color.DarkGray
+            )
         }
-    Column (modifier = Modifier.padding(16.dp)){
-        Text(text = "Teknologi Informasi",
-        color = Color.White,
-        fontSize = 20.sp)
-        Spacer(modifier = Modifier.padding(3.dp))
-        Text(text = "Universitas Muhammadiyah Yogyakarta",
-            color = Color.White,
-            fontSize = 17.sp)
+        Column (modifier = Modifier.padding(16.dp)){
+            Text(text = "Teknologi Infomasi",
+                color = Color.White,
+                fontSize = 25.sp
+            )
+            Spacer(modifier = Modifier.padding(3.dp))
+            Text(text = "Universitas Muhammadiyah Yogyakarta",
+                color = Color.White,
+                fontSize = 17.sp
+            )
+        }
     }
 }
+
 @Composable
 fun DetailMahasiswa(
-    judul: String,
-    isinya: String
-
+    judul:String,
+    isinya:String
 ){
-    Row (modifier = Modifier
-        .fillMaxWidth()
+    Row (modifier = Modifier.fillMaxWidth()
         .padding(16.dp),
         horizontalArrangement = Arrangement.SpaceBetween) {
-        Text( "Nama", modifier = Modifier.weight(0.8f))
+        Text(judul, modifier = Modifier.weight(0.8f))
         Text(":", modifier = Modifier.weight(0.2f))
-        Text("Dina Amalia",
+        Text(isinya,
             modifier = Modifier.weight(2f))
-    }
-    Column{
-        Row{
-
-        }
     }
 }
 
